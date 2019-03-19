@@ -3,7 +3,7 @@ import {
   GoogleMaps,
   GoogleMap,
   GoogleMapOptions,
-} from '@ionic-native/google-maps';
+} from '@ionic-native/google-maps/ngx';
 
 
 @Component({
@@ -14,17 +14,13 @@ import {
 
 export class HomePage {
   map: GoogleMap;
+
   ionViewDidLoad() {
+    console.log("Welcome to home page");
     this.loadMap();
   }
+
   loadMap() {
-
-    // This code is necessary for browser
-    // Environment.setEnv({
-    //   'API_KEY_FOR_BROWSER_RELEASE': '(your api key for `https://`)',
-    //   'API_KEY_FOR_BROWSER_DEBUG': '(your api key for `http://`)'
-    // });
-
     let mapOptions: GoogleMapOptions = {
       camera: {
          target: {
@@ -38,4 +34,5 @@ export class HomePage {
 
     this.map = GoogleMaps.create('map_canvas', mapOptions);
   }
+
 }
